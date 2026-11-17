@@ -1,0 +1,194 @@
+/* Visual do app: fundo vivo com as cores da marca (coração rosa, ondas verde e amarela),
+   cartões de vidro por cima, botões em pílula e topo de vidro fixo. */
+:root {
+  --rosa: #E0457B;
+  --verde: #1E9E5A;
+  --verde-escuro: #177A47;
+  --amarelo: #F2B705;
+  --fundo: #F3F4F7;
+  --vidro: rgba(255, 255, 255, .62);
+  --vidro-borda: rgba(255, 255, 255, .85);
+  --texto: #16171C;
+  --texto-suave: #5B5F6B;
+  --sombra: 0 10px 30px rgba(22, 23, 28, .08);
+  --mancha: .55;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --verde-escuro: #5BD496;
+    --fundo: #0E0F14;
+    --vidro: rgba(30, 32, 42, .58);
+    --vidro-borda: rgba(255, 255, 255, .10);
+    --texto: #F2F3F7;
+    --texto-suave: #A6AAB7;
+    --sombra: 0 10px 30px rgba(0, 0, 0, .35);
+    --mancha: .38;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 17px/1.65 "Nunito", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Fundo vivo: três manchas das cores da marca, desfocadas e andando devagar */
+body::before, body::after, .faixa {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: var(--mancha);
+  pointer-events: none;
+}
+body::before { width: 46vmax; height: 46vmax; top: -14vmax; left: -12vmax; background: var(--verde); animation: flutua 22s ease-in-out infinite alternate; }
+body::after { width: 40vmax; height: 40vmax; bottom: -14vmax; right: -10vmax; background: var(--rosa); animation: flutua 26s ease-in-out infinite alternate-reverse; }
+.faixa { width: 30vmax; height: 30vmax; top: 35%; left: 55%; background: var(--amarelo); opacity: calc(var(--mancha) * .7); animation: flutua 30s ease-in-out infinite alternate; }
+@keyframes flutua { to { transform: translate(6vmax, 5vmax) scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { body::before, body::after, .faixa { animation: none; } }
+
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+
+/* Topo de vidro fixo */
+.topo {
+  position: sticky;
+  top: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px 8px 10px;
+  border-radius: 999px;
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  text-decoration: none;
+  color: var(--verde-escuro);
+}
+.topo img { width: 40px; height: auto; }
+.topo span { font-weight: 800; font-size: 18px; }
+
+h1 { font-size: clamp(30px, 6vw, 40px); line-height: 1.15; margin: 32px 0 6px; letter-spacing: -.02em; }
+.versao {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+/* Cartões de vidro, como as janelas flutuantes do app */
+.cartao {
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  border-radius: 22px;
+  padding: 20px 22px;
+  margin: 0 0 14px;
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cartao:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(22, 23, 28, .12); }
+.cartao h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  margin: 0 0 8px;
+  color: var(--verde-escuro);
+}
+/* Bolinha com as cores da marca antes de cada título */
+.cartao h2::before {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: conic-gradient(var(--verde), var(--amarelo), var(--rosa), var(--verde));
+}
+.cartao p { margin: 0; }
+.cartao ul { margin: 0; padding-left: 20px; }
+.cartao li + li { margin-top: 8px; }
+.cartao li::marker { color: var(--rosa); }
+
+a { color: var(--rosa); font-weight: 700; text-underline-offset: 3px; }
+
+/* Página inicial */
+.inicio { text-align: center; padding-top: 56px; }
+.inicio > img { width: 170px; height: auto; filter: drop-shadow(0 12px 24px rgba(224, 69, 123, .25)); animation: bate 2.4s ease-in-out infinite; }
+@keyframes bate { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.07); } 24% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .inicio > img { animation: none; } }
+.inicio h1 {
+  font-size: clamp(38px, 9vw, 54px);
+  margin-top: 14px;
+  background: linear-gradient(90deg, var(--verde-escuro), var(--verde) 55%, var(--rosa));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.inicio .frase { font-size: 19px; color: var(--texto-suave); margin: 0 auto 28px; max-width: 520px; }
+
+.selos { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+.selos li {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 36px; }
+.botao {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--verde), #17884C);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(30, 158, 90, .35);
+  transition: transform .15s ease;
+}
+.botao:hover { transform: translateY(-2px); }
+.botao.contorno {
+  background: var(--vidro);
+  color: var(--verde-escuro);
+  border: 1px solid var(--vidro-borda);
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.criador { text-align: left; }
+.criador .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+.criador .links a {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+footer {
+  margin-top: 28px;
+  color: var(--texto-suave);
+  font-size: 15px;
+  text-align: center;
+}
+footer a { color: inherit; }
