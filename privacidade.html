@@ -12,7 +12,7 @@
   <main>
     <a class="topo" href="./"><img src="simbolo.svg" alt="" width="56"><span>País do amor</span></a>
     <h1>Política de privacidade</h1>
-    <p class="versao">Versão 2 · a mesma que o app mostra · atualizada em 25/11/2026</p>
+    <p class="versao">Versão 3 · a mesma que o app mostra · atualizada em 26/11/2026</p>
 
     <section class="cartao">
       <h2>1. Resumo</h2>
@@ -35,6 +35,9 @@
         <li><strong>Perto:</strong> os celulares se encontram por Bluetooth e Wi-Fi, sem internet, e trocam os dados direto entre si.</li>
         <li><strong>Rede:</strong> com o radar ligado e a internet, o app pergunta ao servidor quem está perto (até alguns quilômetros). Perfis, mensagens, fotos, publicações do feed (local e global), curtidas, comentários, stories e eventos passam pelo servidor só de passagem, cifrados de ponta a ponta. Ele sabe, só naquele instante, de qual conta para qual conta o pacote vai, para entregar. Nada fica guardado.</li>
         <li>Você escolhe a conexão (Wi-Fi, Rede ou os dois) e pode desligar o radar ou ficar invisível quando quiser.</li>
+        <li><strong>Um aparelho por conta:</strong> a sua conta fica ativa em um celular só. Se você entrar com ela em outro, o app avisa antes; se você confirmar, o celular anterior manda ao servidor o que ainda estava na fila dele (registros de acesso e denúncias), apaga os dados do País do amor que estavam nele e sai da conta. Nada passa de um celular para o outro.</li>
+        <li><strong>Sair da conta:</strong> encerra a sessão deste celular também no servidor. Outro aparelho não é afetado.</li>
+        <li><strong>Regra dos 7 dias:</strong> se o celular ficar 7 dias sem falar com o servidor, o radar pausa até a próxima conversa com ele, para a lista de contas bloqueadas não ficar velha. Para a regra não ser enganada mudando o relógio, o celular guarda só nele a data da última lista, o contador de tempo do Android e a maior hora já vista. Nada disso vai para o servidor.</li>
       </ul>
     </section>
 
@@ -52,8 +55,8 @@
       <h2>6. O que o nosso servidor guarda</h2>
       <ul>
         <li><strong>Registro de acesso:</strong> a sua conta, o código do app no seu celular, o endereço IP, a porta, o tipo de chamada e a data e hora. Serve para segurança e para atender ordens da Justiça.</li>
-        <li><strong>Conta:</strong> o e-mail e o nome da sua conta Google, ligados ao código do app no seu celular, para você entrar e para o bloqueio valer mesmo se você reinstalar.</li>
-        <li><strong>Denúncias:</strong> o motivo, o que você escreveu, o nome, a idade e o código de quem foi denunciado, a sua conta e o IP e a porta. O seu e-mail fica cifrado de um jeito que só o responsável pelo app consegue abrir, e ele só o entrega a uma autoridade que pedir. Quando o motivo envolve criança ou adolescente, vai junto a conversa com essa pessoa que está no seu celular, com as fotos e os vídeos dela. Isso sai do seu celular já cifrado de um jeito que só o responsável pelo app consegue abrir, com uma chave que fica fora do servidor: o servidor guarda sem conseguir ver, só para entregar às autoridades.</li>
+        <li><strong>Conta:</strong> o e-mail e o nome da sua conta Google, ligados ao código do app no seu celular, para você entrar e para o bloqueio valer mesmo se você reinstalar. Também qual é o aparelho ativo da conta e a sessão de login dele (item 3), para saber qual celular pode usar a conta.</li>
+        <li><strong>Denúncias:</strong> o motivo, o que você escreveu, o nome, a idade e o código de quem foi denunciado, a sua conta, o código do app no seu celular e o IP e a porta. O código do celular serve para que várias contas num mesmo celular contem como uma pessoa só no bloqueio automático (item 16). O seu e-mail fica cifrado de um jeito que só o responsável pelo app consegue abrir, e ele só o entrega a uma autoridade que pedir. Quando o motivo envolve criança ou adolescente, vai junto a conversa com essa pessoa que está no seu celular, com as fotos e os vídeos dela. Isso sai do seu celular já cifrado de um jeito que só o responsável pelo app consegue abrir, com uma chave que fica fora do servidor: o servidor guarda sem conseguir ver, só para entregar às autoridades.</li>
         <li><strong>Bloqueios:</strong> quais contas estão bloqueadas e por quê. Todos os celulares recebem só uma lista embaralhada (hash) desses códigos, para esconder quem está bloqueado. Se uma conta bloqueada pede a exclusão, ficam só a ligação dela com o aparelho bloqueado e um código embaralhado da conta Google (não dá para descobrir o e-mail por ele), para o bloqueio continuar valendo se a pessoa voltar com a mesma conta.</li>
         <li><strong>Provas de consentimento:</strong> o que você aceitou ou recusou (Termos, Política, dados sensíveis), a versão e a hora.</li>
         <li><strong>Pedidos de exclusão:</strong> a sua conta, o e-mail e a hora do pedido, para mostrar que atendemos.</li>
@@ -110,11 +113,11 @@
       <h2>13. Por quanto tempo guardamos</h2>
       <ul>
         <li>Registros de acesso: 6 meses, o prazo do Marco Civil da Internet. Depois, apagados sozinhos.</li>
-        <li>Denúncias: 6 meses; mais tempo só se uma autoridade pedir. Depois, apagadas sozinhas. As provas cifradas de um caso com criança ou adolescente são apagadas junto com a denúncia.</li>
+        <li>Denúncias (com o código do celular de quem denunciou): 6 meses; mais tempo só se uma autoridade pedir. Depois, apagadas sozinhas. As provas cifradas de um caso com criança ou adolescente são apagadas junto com a denúncia.</li>
         <li>Bloqueios: enquanto valerem; um bloqueio automático vale até a revisão. O que fica de uma conta bloqueada apagada (item 6) sai junto quando o bloqueio é liberado.</li>
         <li>Localização aproximada: vale 15 minutos; é apagada na limpeza seguinte (a cada 5 minutos), então fica no máximo cerca de 20 minutos.</li>
         <li>Confirmação do aparelho (Play Integrity): até 1 dia.</li>
-        <li>Conta (e-mail, nome e código do app): até você pedir a exclusão.</li>
+        <li>Conta (e-mail, nome, código do app e a sessão do aparelho ativo): enquanto a conta existir, até você pedir a exclusão.</li>
         <li>Provas de consentimento e pedidos de exclusão: 5 anos depois do fim da conta (o último uso do app ou o pedido de exclusão), para provar que pedimos o seu aceite e que atendemos o seu pedido. Depois, apagados sozinhos.</li>
       </ul>
       <p>Um prazo maior só existe se a lei ou uma ordem da Justiça mandar. As empresas do item 10 também guardam registros técnicos delas, pelos prazos delas.</p>
@@ -132,7 +135,7 @@
 
     <section class="cartao">
       <h2>16. Decisões automáticas e revisão</h2>
-      <p>Duas decisões são automáticas: o bloqueio da conta com denúncias de 5 pessoas diferentes em 7 dias e o bloqueio na décima tentativa recusada pela conferência de conteúdo. Em ambos você pode pedir a revisão por uma pessoa (LGPD art. 20) no e-mail <a href="mailto:murilooliveiraspinello@hotmail.com">murilooliveiraspinello@hotmail.com</a> e saber os critérios usados. O bloqueio automático vale até essa revisão.</p>
+      <p>Duas decisões são automáticas: o bloqueio da conta com denúncias de 5 pessoas diferentes em 7 dias (contas diferentes e celulares diferentes: várias contas num mesmo celular contam como uma) e o bloqueio na décima tentativa recusada pela conferência de conteúdo. Em ambos você pode pedir a revisão por uma pessoa (LGPD art. 20) no e-mail <a href="mailto:murilooliveiraspinello@hotmail.com">murilooliveiraspinello@hotmail.com</a> e saber os critérios usados. O bloqueio automático vale até essa revisão.</p>
     </section>
 
     <section class="cartao">
@@ -155,7 +158,7 @@
       <p>Quando esta política mudar de um jeito que importa, o app avisa e pede o seu aceite de novo; as versões antigas continuam no site. Dúvidas, pedidos e reclamações: <a href="mailto:murilooliveiraspinello@hotmail.com.">murilooliveiraspinello@hotmail.com.</a></p>
     </section>
 
-    <footer>País do amor · projeto independente de Murilo Spinello · <a href="termos.html">Termos de uso</a> · <a href="apagar-dados.html">Como apagar sua conta</a> · <a href="privacidade-v1.html">Versão anterior</a></footer>
+    <footer>País do amor · projeto independente de Murilo Spinello · <a href="termos.html">Termos de uso</a> · <a href="apagar-dados.html">Como apagar sua conta</a> · <a href="privacidade-v2.html">Versão anterior</a></footer>
   </main>
 </body>
 </html>
